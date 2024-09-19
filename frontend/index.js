@@ -11,11 +11,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   const postsContainer = document.getElementById("posts-container");
 
   const quill = new Quill('#editor', {
-    theme: 'snow'
+    theme: 'snow',
+    placeholder: 'Write your post here...',
   });
 
   newPostBtn.addEventListener("click", () => {
     newPostForm.classList.toggle("hidden");
+    if (!newPostForm.classList.contains("hidden")) {
+      document.getElementById("post-title").focus();
+    }
   });
 
   submitPostBtn.addEventListener("click", async () => {
@@ -23,9 +27,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const author = document.getElementById("post-author").value;
     const body = quill.root.innerHTML;
 
+    if (!title || !author || quill.getText().trim().length === 0) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     await backend.addPost(title, body, author);
     loadPosts();
     newPostForm.classList.add("hidden");
+    document.getElementById("post-title").value = "";
+    document.getElementById("post-author").value = "";
+    quill.setText("");
   });
 
   async function loadPosts() {

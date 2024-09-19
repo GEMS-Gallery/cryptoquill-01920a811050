@@ -1,64 +1,114 @@
+:root {
+  --primary-color: #635bff;
+  --background-color: #f6f9fc;
+  --text-color: #32325d;
+  --border-color: #e6ebf1;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .container {
   max-width: 800px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
-  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
 }
 
-button {
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
   border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.btn-primary:hover {
+  background-color: #5851db;
+}
+
+main {
+  padding: 40px 0;
 }
 
 #new-post-form {
-  margin-top: 20px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #new-post-form.hidden {
   display: none;
 }
 
-#editor {
-  height: 200px;
+.input-field {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#editor {
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
 }
 
 .post {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  background-color: white;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .post-title {
-  font-size: 1.5em;
-  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
 }
 
 .post-author {
-  color: #555;
-  font-size: 0.9em;
+  color: #6b7c93;
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 
 .post-body {
-  margin-top: 10px;
+  font-size: 16px;
+}
+
+.ql-editor {
+  min-height: 200px;
 }
